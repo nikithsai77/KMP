@@ -1,5 +1,6 @@
 package org.example.cleanarchitecture.book.data.database
 
+import androidx.room.ConstructedBy
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
@@ -11,6 +12,8 @@ import androidx.room.TypeConverters
 @TypeConverters(
     StringListTypeConverter::class
 )
+//For IOS This Req.
+@ConstructedBy(BookDatabaseConstructor::class)
 abstract class FavoriteBookDataBase : RoomDatabase() {
     abstract val dao: FavoriteBookDao
 

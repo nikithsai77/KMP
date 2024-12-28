@@ -14,7 +14,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.unit.dp
 import org.example.cleanarchitecture.core.SandYellow
-import org.jetbrains.compose.ui.tooling.preview.Preview
 
 @Composable
 fun PulseAnimation(modifier: Modifier = Modifier) {
@@ -27,13 +26,11 @@ fun PulseAnimation(modifier: Modifier = Modifier) {
             repeatMode = RepeatMode.Restart
         )
     )
-
-    Box(modifier = modifier
-        .graphicsLayer {
+    Box(modifier = modifier.graphicsLayer {
             scaleX = progress
             scaleY = progress
             alpha = 1f - progress
-        }.border(
+    }.border(
             width = 5.dp,
             color = SandYellow,
             shape = CircleShape

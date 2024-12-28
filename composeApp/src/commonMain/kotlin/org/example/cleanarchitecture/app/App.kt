@@ -1,5 +1,7 @@
 package org.example.cleanarchitecture.app
 
+import androidx.compose.animation.slideInHorizontally
+import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -30,12 +32,17 @@ fun App() {
         val controller = rememberNavController()
         NavHost(navController = controller, startDestination = Route.BookGraph) {
             navigation<Route.BookGraph>(startDestination = Route.BookList) {
-                composable<Route.BookList> {
+                composable<Route.BookList>(
+                    //RTL
+                    exitTransition = { slideOutHorizontally() },
+                    //TLR
+                    popEnterTransition = { slideInHorizontally() }
+                ) {
                 val viewModel = koinViewModel<BookListViewModel>()
                 val selectedBookViewModel = it.sharedKoinViewModel<SelectedBookViewModel>(navController = controller)
 
                 //This Effect will be called when the composable launched for the first time and
-                //composable got active from again from another screen.
+                //when the composable got active again when it came to this screen from another screen.
                 LaunchedEffect(key1 = true) {
                     selectedBookViewModel.onSelectedBook(book = null)
                 }
@@ -45,7 +52,10 @@ fun App() {
                     controller.navigate(Route.BookDetail(id = book.id))
                 }
             }
-            composable<Route.BookDetail> { entry ->
+            composable<Route.BookDetail>(
+                enterTransition = { slideInHorizontally { offset -> offset } },
+                exitTransition = { slideOutHorizontally { offset -> offset } }
+            ) { entry ->
                 val selectedBookViewModel = entry.sharedKoinViewModel<SelectedBookViewModel>(navController = controller)
                 val selectedBook by selectedBookViewModel.selectedBook.collectAsStateWithLifecycle()
                 val viewModel = koinViewModel<BookDetailViewModel>()

@@ -94,7 +94,7 @@ fun BookListItem(book: Book, onClick: () -> Unit, modifier: Modifier = Modifier)
                         // 4.555
                         // round(4.555 * 10) = 46
                         // 46 / 10 = 4.6
-                        Text(text = "${round(rating * 10)}", style = MaterialTheme.typography.bodyMedium)
+                        Text(text = "${round(x = rating * 10) / 10}", style = MaterialTheme.typography.bodyMedium)
                         Icon(imageVector = Icons.Default.Star, contentDescription = null, tint = SandYellow)
                     }
                 }

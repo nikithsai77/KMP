@@ -1,4 +1,4 @@
-package org.example.cleanarchitecture.book.presentation.bookDetail.components
+package org.example.cleanarchitecture.book.presentation.bookDetail.component
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.Image
@@ -20,7 +20,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton

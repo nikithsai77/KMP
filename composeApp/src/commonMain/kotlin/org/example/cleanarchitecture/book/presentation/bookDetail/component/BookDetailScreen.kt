@@ -16,7 +16,6 @@ import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -31,7 +30,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import org.example.cleanarchitecture.book.presentation.bookDetail.BookDetailAction
 import org.example.cleanarchitecture.book.presentation.bookDetail.bookDetail.component.ChipSize
 import org.example.cleanarchitecture.book.presentation.bookDetail.bookDetail.component.BookChip
-import org.example.cleanarchitecture.book.presentation.bookDetail.components.BlurredImageBackground
 import org.example.cleanarchitecture.book.presentation.bookDetail.BookDetailState
 import org.example.cleanarchitecture.book.presentation.bookDetail.components.TitleContent
 import org.example.cleanarchitecture.core.SandYellow

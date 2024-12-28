@@ -8,13 +8,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Tab
@@ -40,7 +40,6 @@ import org.example.cleanarchitecture.book.presentation.bookDetail.bookListItem.c
 import org.example.cleanarchitecture.core.DarkBlue
 import org.example.cleanarchitecture.core.DesertWhite
 import org.example.cleanarchitecture.core.SandYellow
-import org.example.cleanarchitecture.core.presentation.PulseAnimation
 
 @Composable
 fun BookListScreenRoot(viewModel: BookListViewModel, onBookClick: (Book) -> Unit) {
@@ -135,7 +134,7 @@ private fun BookListScreen(
                     Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
                         when(pageIndex) {
                             0 -> {
-                                if (state.isLoading) PulseAnimation(modifier = Modifier.size(60.dp))
+                                if (state.isLoading) CircularProgressIndicator()
                                 else {
                                     when {
                                         state.errorMessage != null -> {
